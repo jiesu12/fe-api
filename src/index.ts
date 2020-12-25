@@ -79,7 +79,6 @@ export const getHtmlLinkToken = (): Promise<LoginResponse> =>
 ///////////////////////////////////
 //// File service API /////
 ///////////////////////////////////
-export const getServiceUrl = (service: Service) => `/fileservice/${service.ip}/${service.port}`
 
 export const getTextFile = (instance: Service, path: string): Promise<TextFile> =>
   getJson(`${getServiceUrl(instance)}/api/file/text?path=${encodeURIComponent(path)}`)
@@ -115,6 +114,8 @@ export const uploadBinary = (
 ///////////////////////////////////
 //// Service API /////
 ///////////////////////////////////
+export const getServiceUrl = (service: Service) => `/service/${service.ip}/${service.port}`
+
 export const getServices = async (service: string): Promise<Service[]> => {
   // can call load balance url for this API call, no need to provide instance name
   return await getJson(`/discoveryservice/eureka/apps/${service}`).then((xml: any) => {
