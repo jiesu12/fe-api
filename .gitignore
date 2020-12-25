@@ -1,0 +1,11 @@
+*.log
+*.swp
+Session.vim
+/lib
+
+### VS Code ###
+.vscode/
+
+### JS
+node_modules/
+*.css
