@@ -28,7 +28,16 @@ export interface Service {
   port: string
 }
 
+export interface UserDto {
+  username: string
+}
+
 export interface LoginResponse {
-  user: any
+  user: UserDto
   token: string
+}
+
+export interface LoginRequest {
+  username: string
+  password: string
 }
