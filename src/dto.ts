@@ -7,6 +7,10 @@ export interface FileMeta {
   lastUpdateOn?: number
 }
 
+export interface BooleanResponse {
+  result: boolean
+}
+
 export interface TextFile {
   meta: FileMeta
   text: string
@@ -17,8 +21,14 @@ export interface SaveFileResponse {
   message?: string
 }
 
-export interface FileService {
+export interface Service {
+  service: string
   name: string
   ip: string
   port: string
+}
+
+export interface LoginResponse {
+  user: any
+  token: string
 }
