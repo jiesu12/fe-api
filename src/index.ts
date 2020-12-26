@@ -127,12 +127,8 @@ export const getServices = async (service: string): Promise<Service[]> => {
       const instance = instances.item(i)
       const ip = instance.getElementsByTagName('hostName').item(0).textContent
       const port = instance.getElementsByTagName('port').item(0).textContent
-      const name = instance
-        .getElementsByTagName('metadata')
-        .item(0)
-        .getElementsByTagName('name')
-        .item(0).textContent
-      names.push({ service, ip, port, name })
+      const nameEl = instance.getElementsByTagName('metadata').item(0).getElementsByTagName('name')
+      names.push({ service, ip, port, name: nameEl.length > 0 ? nameEl.item(0).textContent : null })
     }
     return names
   })
