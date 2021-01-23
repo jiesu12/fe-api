@@ -8,7 +8,7 @@ const JSON_CONTENT_TYPE = 'application/json'
 //////////////////////
 //// General API /////
 //////////////////////
-export const getJson = (url: string): any => callApi('GET', url, JSON_CONTENT_TYPE)
+export const getJson = (url: string) => callApi('GET', url, JSON_CONTENT_TYPE)
 
 export const postJson = (url: string, payload?: any) =>
   callApi('POST', url, JSON_CONTENT_TYPE, payload)
@@ -73,8 +73,8 @@ export const callApi = async (
 ///////////////////////////////////
 //// Auth API /////
 ///////////////////////////////////
-export const getHtmlLinkToken = (): Promise<LoginResponse> =>
-  getJson('/fileswim/api/auth/htmlLinkToken')
+export const getHtmlLinkToken = (fspath: string): Promise<LoginResponse> =>
+  getJson(`/fileswim/api/auth/htmlLinkToken?fspath=${fspath}`)
 
 ///////////////////////////////////
 //// File service API /////
