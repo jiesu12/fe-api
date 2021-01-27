@@ -102,12 +102,16 @@ export const uploadBinary = (
   instance: Service,
   dir: string,
   file: any,
-  overwrite: boolean
+  overwrite: boolean,
+  lastModified?: number
 ): Promise<FileMeta> => {
   const fd = new FormData()
   fd.append('file', file)
   fd.append('dir', dir)
   fd.append('overwrite', overwrite.toString())
+  if (lastModified !== undefined && lastModified !== null) {
+    fd.append('lastModified', lastModified.toString())
+  }
   return callApi('POST', `${getServiceUrl(instance)}/api/file/upload`, null, fd)
 }
 
