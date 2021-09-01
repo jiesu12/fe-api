@@ -24,6 +24,7 @@ export interface SaveFileResponse {
 export interface Service {
   service: string
   name: string
+  host: string
   ip: string
   port: string
 }

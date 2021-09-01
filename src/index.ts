@@ -118,7 +118,9 @@ export const uploadBinary = (
 ///////////////////////////////////
 //// Service API /////
 ///////////////////////////////////
-export const getServiceUrl = (service: Service) => `/service/${service.ip}/${service.port}`
+export const getServiceUrl = (service: Service) => `/service/${service.host}/${service.port}`
+
+export const getServiceUrlWithIp = (service: Service) => `/service/${service.ip}/${service.port}`
 
 export const getServices = async (service: string): Promise<Service[]> => {
   // can call load balance url for this API call, no need to provide instance name
@@ -129,10 +131,17 @@ export const getServices = async (service: string): Promise<Service[]> => {
     const names: Service[] = []
     for (let i = 0; i < length; i++) {
       const instance = instances.item(i)
-      const ip = instance.getElementsByTagName('hostName').item(0).textContent
+      const ip = instance.getElementsByTagName('ipAddr').item(0).textContent
+      const host = instance.getElementsByTagName('hostName').item(0).textContent
       const port = instance.getElementsByTagName('port').item(0).textContent
       const nameEl = instance.getElementsByTagName('metadata').item(0).getElementsByTagName('name')
-      names.push({ service, ip, port, name: nameEl.length > 0 ? nameEl.item(0).textContent : null })
+      names.push({
+        service,
+        host,
+        ip,
+        port,
+        name: nameEl.length > 0 ? nameEl.item(0).textContent : null,
+      })
     }
     return names
   })
