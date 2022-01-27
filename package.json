@@ -1,5 +1,5 @@
 {
-  "name": "@jiesu12/fileswim-api",
+  "name": "@jiesu12/fe-api",
   "version": "1.4.0",
   "description": "",
   "main": "lib/index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://githue.com/jiesu12/fileswim-api.git"
+    "url": "git+https://githue.com/jiesu12/fe-api.git"
   },
   "keywords": [
     "typescript"
@@ -17,9 +17,9 @@
   "author": "Jie Su",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jiesu12/fileswim-api/issues"
+    "url": "https://github.com/jiesu12/fe-api/issues"
   },
-  "homepage": "https://github.com/jiesu12/fileswim-api#readme",
+  "homepage": "https://github.com/jiesu12/fe-api#readme",
   "devDependencies": {
     "@types/js-cookie": "^2.2.6",
     "@typescript-eslint/eslint-plugin": "^3.0.0",
