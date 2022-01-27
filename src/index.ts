@@ -74,7 +74,7 @@ export const callApi = async (
 //// Auth API /////
 ///////////////////////////////////
 export const getHtmlLinkToken = (fspath: string): Promise<LoginResponse> =>
-  getJson(`/fileswim/api/auth/htmlLinkToken?fspath=${fspath}`)
+  getJson(`/api/auth/htmlLinkToken?fspath=${fspath}`)
 
 ///////////////////////////////////
 //// File service API /////
